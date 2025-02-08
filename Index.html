@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wish - Orchid Theme</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('https://www.transparenttextures.com/patterns/fabric-of-squares.png');
+            background-color: #f1e9f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        h2 {
+            font-size: 2em;
+            color: #7D3C98;
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #d7bde2;
+            width: 250px;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #7D3C98;
+            color: white;
+            padding: 10px 30px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #8e44ad;
+        }
+        #heart {
+            font-size: 60px;
+            color: #ff477e;
+            animation: pulse 1s infinite;
+            display: none;
+            margin-top: 20px;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        #message {
+            display: none;
+            font-size: 1.1em;
+            color: #4a235a;
+            margin-top: 30px;
+            line-height: 1.6;
+        }
+        .orchid {
+            position: absolute;
+            width: 100px;
+            animation: float 6s ease-in-out infinite;
+        }
+        .orchid:nth-child(1) {
+            top: -40px;
+            left: -30px;
+            animation-duration: 5s;
+        }
+        .orchid:nth-child(2) {
+            top: -30px;
+            right: -40px;
+            animation-duration: 7s;
+        }
+        .orchid:nth-child(3) {
+            bottom: -50px;
+            left: -40px;
+            animation-duration: 9s;
+        }
+        .orchid:nth-child(4) {
+            bottom: -60px;
+            right: -30px;
+            animation-duration: 6s;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Enter Our Meeting Date</h2>
+        <input type="text" id="meetingDate" placeholder="DDMMYYYY">
+        <br>
+        <button onclick="checkDate()">Go</button>
+
+        <!-- Orchids animation -->
+        <img src="https://i.imgur.com/n0IS5Gn.png" class="orchid" alt="Orchid" />
+        <img src="https://i.imgur.com/n0IS5Gn.png" class="orchid" alt="Orchid" />
+        <img src="https://i.imgur.com/n0IS5Gn.png" class="orchid" alt="Orchid" />
+        <img src="https://i.imgur.com/n0IS5Gn.png" class="orchid" alt="Orchid" />
+    </div>
+
+    <div id="popup" class="hidden">
+        <p>Are you ready for the birthday wish from Mizhi?</p>
+        <button onclick="showWish()">Yes</button>
+    </div>
+
+    <div id="heart">♥️</div>
+
+    <div id="message">
+        <p>My someone,</p>
+        <p>There comes a time in life where you come across a person that is a deep breath personified, someone who knows what you're thinking simply by the look in your eyes. Someone you can laugh until you cry with. Someone you can pour your heart out to, and you know they'll hold it gently and without judgement. Someone who knows how to melt away your stress. Someone who challenges you yet handles you with care. Someone who reminds you of your strength at your weakest points and you believe them. Someone who celebrates you and sings your praises, even when you're not around.</p>
+        <p>Someone who softens your heart when things get tough, but would go to war for you in a heartbeat. Someone you can share your stories with, deepening your connection with every page. Someone who would never allow you to settle because their faith in you is unwavering, someone you feel you've known in a past life and that you'd find in every lifetime. Someone you could spend your entire life thanking, and it would never be enough.</p>
+        <p>Thank you for being my someone, my safe space in human form.</p>
+        <p>If I could wish anything for anyone, it would be to have someone like you.</p>
+        <p>Wishing you the happiest birthday.</p>
+        <p>With ♥️, your own poet, Mizhi.</p>
+    </div>
+
+    <script>
+        function checkDate() {
+            const dateInput = document.getElementById("meetingDate").value;
+            if (dateInput === "07012023") {
+                document.querySelector('.container').classList.add('hidden');
+                document.getElementById("popup").classList.remove('hidden');
+            } else {
+                alert("Please enter the correct date!");
+            }
+        }
+
+        function showWish() {
+            document.getElementById("popup").classList.add('hidden');
+            document.getElementById("heart").style.display = "block";
+
+            setTimeout(function () {
+                document.getElementById("heart").style.display = "none";
+                document.getElementById("message").style.display = "block";
+            }, 3000); // Display heart for 3 seconds
+        }
+    </script>
+</body>
+</html>
